@@ -45,14 +45,15 @@ What is a seed file? Why is seeding important when working on a team?
 
 **Your answer:**
 
----
+A **seed file** is a `.sql` file containing `DROP`, `CREATE`, and `INSERT` statements that build and add data onto a database from scratch. Seed files drop and recreate a database and its tables, then insert the seed data. This is important on a team because every developer should use the same database. Without a seed file, each developer on a team will have to manually run SQL commands to set up their local database, and this can cause bugs and differences in data.
+
 
 ## Question 5
 
 You have a table called `orders` with a `customer_name` column and a `total` column. Write a SQL query that shows each customer's total spending, but only includes customers who have spent more than $100 in total.
 
 ```sql
-SELECT customer, SUM(total) AS total_spent --adds the order total for each customer to total_spent
+SELECT customer, SUM(total) AS total_spent -- adds the order total for each customer to total_spent
 FROM orders -- gets all the rows in the order table by customer
 GROUP BY customer -- ^
 HAVING SUM(total) > 100; -- only gets customers who have  spent more than $100
