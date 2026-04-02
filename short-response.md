@@ -29,7 +29,15 @@ What is the difference between `WHERE` and `HAVING`? Can you use both in the sam
 
 **Your answer:**
 
----
+`WHERE` and `HAVING` are both used to filter data, but used during different phases of an **aggregate function**. `WHERE` runs *before* grouping, so it filters **ROWS** based on the given condition.  and `HAVING` runs *after* grouping, so it filters out **GROUPS** based on the result of an **aggregate function** or calculation.You can use both in the same query. 
+Here is an example:
+```sql
+SELECT student, AVG(grade) AS average_grade
+FROM grades
+WHERE class = 'math' -- only gets math grades
+GROUP BY student
+HAVING AVG(grade) > 70 -- only shows students that average above 70
+ ```
 
 ## Question 4
 
