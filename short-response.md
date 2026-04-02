@@ -52,5 +52,8 @@ What is a seed file? Why is seeding important when working on a team?
 You have a table called `orders` with a `customer_name` column and a `total` column. Write a SQL query that shows each customer's total spending, but only includes customers who have spent more than $100 in total.
 
 ```sql
--- Your query here
+SELECT customer, SUM(total) AS total_spent --adds the order total for each customer to total_spent
+FROM orders -- gets all the rows in the order table by customer
+GROUP BY customer -- ^
+HAVING SUM(total) > 100; -- only gets customers who have  spent more than $100
 ```
