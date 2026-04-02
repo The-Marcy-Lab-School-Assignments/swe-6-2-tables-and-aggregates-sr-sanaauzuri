@@ -10,7 +10,8 @@ What is a data type? Why does it matter what type you assign to a column? Give a
 
 **Your answer:**
 
-A data type is 
+A **data type** is a kind of **data value** that tells Postgres the kind of value that a column accepts, like a number or a date. This matters because Postgres uses the data type to know how to store, perform operations, and work with the data. If you assign the wrong data type, Postgres will throw errors or operations/comparisons won’t work as intended. For instance, if you store a birthdate column as `TEXT` instead of `VARCHAR(MM-DD-YYYY)`, a user could enter ‘Hello’ and Postgres just accepts that data value, using the correct data type prevents this error.
+ 
 
 ## Question 2
 
